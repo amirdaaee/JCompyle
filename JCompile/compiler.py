@@ -1,5 +1,4 @@
 import json
-import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -9,8 +8,8 @@ class JsonCompiler:
     template: str
     context: dict
     value = None
-    _opening = "\"{{"
-    _closing = "}}\""
+    _opening = '"{{'
+    _closing = '}}"'
 
     def compile(self):
         t_ = str(self.template)
@@ -20,9 +19,9 @@ class JsonCompiler:
 
     @classmethod
     def from_file(cls, template_path: Path, context_path: Path):
-        with open(template_path, 'r') as f_:
+        with open(template_path, "r") as f_:
             template_ = f_.read()
-        with open(context_path, 'r') as f_:
+        with open(context_path, "r") as f_:
             context_ = json.load(f_)
         return cls(template=template_, context=context_)
 
@@ -34,7 +33,7 @@ class JsonCompiler:
         return json.loads(self.to_json())
 
     def to_file(self, save_path: Path):
-        with open(save_path, 'w') as f_:
+        with open(save_path, "w") as f_:
             f_.write(self.to_json())
 
     def _pattern(self, key):

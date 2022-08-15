@@ -12,9 +12,27 @@ include = ["run.py"]
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
+pre-commit = "^2.20.0"
 
 [tool.poetry.scripts]
 jcompyle = "run:run"
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
