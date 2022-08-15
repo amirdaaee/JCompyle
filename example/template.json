@@ -1,0 +1,5 @@
+{
+  "who": "{{who}}",
+  "list": "{{array}}",
+  "dict": "{{dict}}"
+}
