@@ -126,3 +126,7 @@ dmypy.json
 .idea/
 
 test.py
+
+.github/workflows/act.json
+
+.github/workflows/.secrets
